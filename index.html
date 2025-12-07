@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harridi Ilman Tovid — CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/daisyui@latest/dist/full.css" />
+    <style>
+      /* small safe container width */
+      .cv-body { max-width: 960px; margin: 1.5rem auto; }
+      .pdf-embed { height: 420px; }
+    </style>
+  </head>
+  <body class="bg-base-200 text-base-content">
+    <div class="cv-body">
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body p-6">
+          <div class="flex flex-col md:flex-row gap-6">
+            <!-- Left column: contact / quick info -->
+            <aside class="md:w-1/3">
+              <div class="prose">
+                <h1 class="mb-0">Harridi Ilman Tovid, S.T</h1>
+                <p class="text-sm text-muted">Software Engineer / Frontend Developer</p>
+              </div>
+
+              <div class="mt-4">
+                <ul class="menu bg-base-200 p-2 rounded-lg">
+                  <li><a href="mailto:harridiilmantovid@gmail.com">harridiilmantovid@gmail.com</a></li>
+                  <li><a href="tel:+628111729896">+62 811-1729-896</a></li>
+                  <li><a href="https://decaller.github.io" target="_blank">decaller.github.io</a></li>
+                </ul>
+              </div>
+
+              <div class="mt-6">
+                <a class="btn btn-primary w-full" href="./Harridi Ilman Tovid, S.T - Resume.pdf" download>
+                  Download PDF
+                </a>
+                <a class="btn btn-ghost w-full mt-2" href="#pdf">Open embedded PDF</a>
+              </div>
+            </aside>
+
+            <!-- Right column: extracted content + sections -->
+            <main class="md:w-2/3">
+              <section class="mb-4">
+                <h2 class="text-lg font-semibold">Summary</h2>
+                <p id="summary">Providing solutions that are simple, effective and efficient from deep understanding of problems, observing the needs and good knowledge of available resources. Kab. Bekasi, Jawa Barat, Indonesia</p>
+              </section>
+
+              <section class="mb-6">
+                <h2 class="text-lg font-semibold">Work Experience</h2>
+                <div class="space-y-4" id="experience">
+                  <article class="p-4 border rounded-lg bg-base-100">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <div class="font-semibold">Yayasan Bina Insan Mustaqbal</div>
+                        <div class="text-sm text-muted">Foundation President — 2024 - Present</div>
+                      </div>
+                    </div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Leading team of teachers and Internships</li>
+                      <li>Researching and piloting various tech and art projects from 3D printing to web based projects</li>
+                    </ul>
+                  </article>
+
+                  <article class="p-4 border rounded-lg bg-base-100">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <div class="font-semibold">Yayasan Bina Insan Taqwa</div>
+                        <div class="text-sm text-muted">(Admin/Developer) — 2025 - Present</div>
+                      </div>
+                    </div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Developing and Managing various systems and administrations</li>
+                      <li>Realigning foundation principles and future projection</li>
+                    </ul>
+                  </article>
+
+                  <article class="p-4 border rounded-lg bg-base-100">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <div class="font-semibold">PT. Dian Insan Lestari</div>
+                        <div class="text-sm text-muted">Staff — 2016 - Present</div>
+                      </div>
+                    </div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Contributing to various Energy Audit Projects as Auditor</li>
+                      <li>Supporting various Civil Engineering Project with 3D softwares</li>
+                    </ul>
+                  </article>
+
+                  <article class="p-4 border rounded-lg bg-base-100">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <div class="font-semibold">Yayasan Bina Insan Taqwa</div>
+                        <div class="text-sm text-muted">(Research & Dev) — 2021 - 2024</div>
+                      </div>
+                    </div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Researching for better curriculum and teaching methods</li>
+                      <li>Developing various web based application</li>
+                    </ul>
+                  </article>
+                </div>
+              </section>
+
+              <section class="mb-6">
+                <h2 class="text-lg font-semibold">Education</h2>
+                <div id="education" class="space-y-2">
+                  <div class="p-4 border rounded-lg bg-base-100">
+                    <div class="font-semibold">University of Indonesia</div>
+                    <div class="text-sm text-muted">2015</div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Contributing to various National Level Events</li>
+                      <li>Leading Faculty Level IT Club</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section class="mb-6">
+                <h2 class="text-lg font-semibold">Projects</h2>
+                <div id="projects" class="space-y-4">
+                  <div class="p-4 border rounded-lg bg-base-100">
+                    <div class="font-semibold">Wiki and Interactive Web Documentation of Teaching Methods</div>
+                    <div class="text-sm text-muted">(self-hosted)</div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Self hosting web based wiki with custom domain</li>
+                      <li>Developing interactive animation from flowchart (draw.io)</li>
+                      <li>Developing interactive chart animations with Apache ECharts</li>
+                    </ul>
+                  </div>
+
+                  <div class="p-4 border rounded-lg bg-base-100">
+                    <div class="font-semibold">Custom Integrated Web Based Finance Report</div>
+                    <div class="text-sm text-muted">2025</div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Installing and reverse engineering accounting software</li>
+                      <li>Automating database backup and replication</li>
+                      <li>Analyzing and merging data to make web custom report</li>
+                    </ul>
+                  </div>
+
+                  <div class="p-4 border rounded-lg bg-base-100">
+                    <div class="font-semibold">Full Stack Web Student Project Showcase</div>
+                    <div class="text-sm text-muted">2025</div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Programming full stack web using Next.js</li>
+                      <li>Installing and managing headless admin frontend self hosted of Strapi</li>
+                      <li>CI/CD using Komodo to host both the Next.js project and Strapi</li>
+                    </ul>
+                  </div>
+
+                  <div class="p-4 border rounded-lg bg-base-100">
+                    <div class="font-semibold">Mid and End Term School Report</div>
+                    <div class="text-sm text-muted">2025</div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Remaking Excel application to be multiple linked Google Sheet</li>
+                      <li>Developing Web Navigation to help user navigating the Google Sheet</li>
+                      <li>Automating backup and navigation update with self hosted n8n</li>
+                    </ul>
+                  </div>
+
+                  <div class="p-4 border rounded-lg bg-base-100">
+                    <div class="font-semibold">Installing Server and Building Network</div>
+                    <div class="text-sm text-muted">2025</div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Leading team for revitalizing existing internet network</li>
+                      <li>Configuring server hardware and software for self hosting (Proxmox, Docker, Caddy, etc.)</li>
+                    </ul>
+                  </div>
+
+                  <div class="p-4 border rounded-lg bg-base-100">
+                    <div class="font-semibold">API Backend for Talents Mapping Application</div>
+                    <div class="text-sm text-muted">2024</div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Remaking Excel application as a REST API app</li>
+                      <li>Providing calculated data and presenting talent chart with SVG</li>
+                    </ul>
+                  </div>
+
+                  <div class="p-4 border rounded-lg bg-base-100">
+                    <div class="font-semibold">Request Based Paycheck via WhatsApp</div>
+                    <div class="text-sm text-muted">2024</div>
+                    <ul class="list-disc list-inside mt-2 text-sm">
+                      <li>Programming custom web frontend for requesting paycheck</li>
+                      <li>Generating PDF paycheck with self hosted Gutenberg and upload it to file storage</li>
+                      <li>Sending unique link to download to requester</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section class="mb-6">
+                <h2 class="text-lg font-semibold">Skills</h2>
+                <div id="skills">
+                  <ul class="list-disc list-inside text-sm">
+                    <li>Effective English communication</li>
+                    <li>Advanced in Education and General Psychology</li>
+                    <li>Focus on future advancement and adaptation</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section id="pdf" class="mb-4">
+                <h2 class="text-lg font-semibold">Embedded PDF</h2>
+                <div class="border rounded-lg overflow-hidden">
+                  <iframe class="w-full pdf-embed" src="./Harridi Ilman Tovid, S.T - Resume.pdf"></iframe>
+                </div>
+                <p class="text-sm text-muted mt-2">PDF is embedded above; use the Download button to get the original file.</p>
+              </section>
+            </main>
+          </div>
+
+          <div class="divider"></div>
+          <div class="text-sm text-muted">This page was generated from the attached PDF. Contact info was auto-detected; full text extraction may need an external tool.</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

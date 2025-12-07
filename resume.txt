@@ -1,0 +1,6 @@
+Name: Harridi Ilman Tovid, S.T
+Email: harridiilmantovid@gmail.com
+Phone: +62 811-1729-896
+Website: https://decaller.github.io
+
+Note: Partial auto-detection completed. Full text extraction from the PDF requires a PDF-to-text tool (e.g. `pdftotext` / poppler) or a Python PDF parser. I can attempt that if you allow installing a small package on the container, or you can paste the resume text and I'll populate the sections in `index.html`.
