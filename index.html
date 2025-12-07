@@ -4,15 +4,61 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Harridi Ilman Tovid — CV</title>
+    <meta name="description" content="Harridi Ilman Tovid — CV / decaller.github.io. Software Engineer with experience in education, web apps and system administration." />
+    <meta property="og:title" content="Harridi Ilman Tovid — CV" />
+    <meta property="og:description" content="Software Engineer — education, web apps, self-hosting and system automation. Download resume PDF." />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://decaller.github.io/" />
+
+    <script>/* Apply daisyUI theme early to avoid flash */document.documentElement.setAttribute('data-theme','corporate');</script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/daisyui@latest/dist/full.css" />
+    <script>
+      /* Tailwind CDN config: register daisyUI plugin and set default theme per docs */
+      tailwind.config = {
+        plugins: [daisyui],
+        daisyui: {
+          themes: ["corporate","forest"]
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" />
     <style>
       /* small safe container width */
       .cv-body { max-width: 960px; margin: 1.5rem auto; }
       .pdf-embed { height: 420px; }
+
+      /* Print styles: hide UI chrome and make content compact */
+      @media print {
+        body { background: white !important; color: black !important; }
+        .btn { display: none !important; }
+        .cv-body { max-width: 100% !important; margin: 0 !important; }
+        .card { box-shadow: none !important; border: none !important; }
+      }
+      /* Theme controller icon visibility */
+      .theme-controller { position: absolute; opacity: 0; width: 0; height: 0; }
+      /* By default show sun, hide moon */
+      .theme-controller ~ svg[aria-label="moon"] { display: none; }
+      /* When checked, show moon and hide sun */
+      .theme-controller:checked ~ svg[aria-label="moon"] { display: inline-block; }
+      .theme-controller:checked ~ svg[aria-label="sun"] { display: none; }
     </style>
   </head>
   <body class="bg-base-200 text-base-content">
+    <!-- Theme controller (fixed) - daisyUI style with icons -->
+    <div class="fixed top-4 right-4 z-50">
+      <label class="toggle text-base-content" aria-label="Toggle dark mode">
+        <input type="checkbox" class="theme-controller" />
+
+        <svg aria-hidden="true" aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="inline-block w-5 h-5">
+          <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g>
+        </svg>
+
+        <svg aria-hidden="true" aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="inline-block w-5 h-5">
+          <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g>
+        </svg>
+      </label>
+    </div>
     <div class="cv-body">
       <div class="card bg-base-100 shadow-lg">
         <div class="card-body p-6">
@@ -33,11 +79,8 @@
               </div>
 
               <div class="mt-6">
-                <a class="btn btn-primary w-full" href="./Harridi Ilman Tovid, S.T - Resume.pdf" download>
-                  Download PDF
-                </a>
-                <a class="btn btn-ghost w-full mt-2" href="#pdf">Open embedded PDF</a>
-              </div>
+                  <button id="downloadBtn" class="btn btn-outline btn-primary w-full" aria-label="Download resume PDF" title="Download resume PDF">Download PDF</button>
+                </div>
             </aside>
 
             <!-- Right column: extracted content + sections -->
@@ -202,20 +245,65 @@
                 </div>
               </section>
 
-              <section id="pdf" class="mb-4">
-                <h2 class="text-lg font-semibold">Embedded PDF</h2>
-                <div class="border rounded-lg overflow-hidden">
-                  <iframe class="w-full pdf-embed" src="./Harridi Ilman Tovid, S.T - Resume.pdf"></iframe>
-                </div>
-                <p class="text-sm text-muted mt-2">PDF is embedded above; use the Download button to get the original file.</p>
-              </section>
             </main>
           </div>
 
-          <div class="divider"></div>
-          <div class="text-sm text-muted">This page was generated from the attached PDF. Contact info was auto-detected; full text extraction may need an external tool.</div>
         </div>
       </div>
     </div>
+    <script>
+      // Download handler: suggest a safe filename
+      document.getElementById('downloadBtn')?.addEventListener('click', function () {
+        const a = document.createElement('a');
+        a.href = './Harridi Ilman Tovid, S.T - Resume.pdf';
+        a.download = 'resume.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+
+      // Theme controller using the daisyUI-style checkbox (toggles dark class)
+      (function () {
+        const controller = document.querySelector('.theme-controller');
+        const root = document.documentElement;
+
+        function applyDark(dark) {
+          if (dark) {
+            root.classList.add('dark');
+            // use 'forest' as the dark daisyUI theme
+            root.setAttribute('data-theme', 'forest');
+          } else {
+            root.classList.remove('dark');
+            // use 'corporate' as the light daisyUI theme
+            root.setAttribute('data-theme', 'corporate');
+          }
+        }
+
+        try {
+          // initialize: prefer stored, then system preference
+          const stored = localStorage.getItem('theme');
+          if (stored === 'dark') {
+            applyDark(true);
+            if (controller) controller.checked = true;
+          } else if (stored === 'light') {
+            applyDark(false);
+            if (controller) controller.checked = false;
+          } else {
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyDark(prefersDark);
+            if (controller) controller.checked = prefersDark;
+          }
+
+          // listen for changes
+          controller?.addEventListener('change', function () {
+            const isDark = !!controller.checked;
+            applyDark(isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          });
+        } catch (e) {
+          console.warn('Theme controller failed', e);
+        }
+      })();
+    </script>
   </body>
 </html>
